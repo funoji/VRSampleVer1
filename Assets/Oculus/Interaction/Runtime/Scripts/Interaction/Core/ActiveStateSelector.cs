@@ -26,6 +26,8 @@ namespace Oculus.Interaction
 {
     public class ActiveStateSelector : MonoBehaviour, ISelector
     {
+        [SerializeField] GameObject shotpoint;
+        [SerializeField] GameObject bullet;
         [Tooltip("ISelector events will be raised " +
             "based on state changes of this IActiveState.")]
         [SerializeField, Interface(typeof(IActiveState))]
@@ -54,6 +56,10 @@ namespace Oculus.Interaction
                 _selecting = ActiveState.Active;
                 if (_selecting)
                 {
+                    GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);
+                    //Vector3 direction = (shotpoint.transform.position - transform.position).normalized;
+                    float bulletSpeed = 10f;
+                    NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
                     WhenSelected();
                 }
                 else
