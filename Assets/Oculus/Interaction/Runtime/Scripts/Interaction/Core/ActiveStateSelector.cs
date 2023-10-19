@@ -28,6 +28,7 @@ namespace Oculus.Interaction
     {
         [SerializeField] GameObject shotpoint;
         [SerializeField] GameObject bullet;
+        [SerializeField]float bulletSpeed = 10f;
         [Tooltip("ISelector events will be raised " +
             "based on state changes of this IActiveState.")]
         [SerializeField, Interface(typeof(IActiveState))]
@@ -58,7 +59,6 @@ namespace Oculus.Interaction
                 {
                     GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);
                     //Vector3 direction = (shotpoint.transform.position - transform.position).normalized;
-                    float bulletSpeed = 10f;
                     NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
                     WhenSelected();
                 }
