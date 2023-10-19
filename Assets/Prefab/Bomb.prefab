@@ -150,7 +150,7 @@ MonoBehaviour:
   Ex_powerUP: 5
   Ex_particle: {fileID: 6955930219174019939}
   Wall_Layer: 0
-  Set_WaitTime: 1
+  Set_WaitTime: 0
   _waitclass:
     delayTime: 3
 --- !u!1 &8073531221668633566

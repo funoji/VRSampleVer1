@@ -28,7 +28,6 @@ public class Explosion_Bomb_SC : MonoBehaviour
 
     [Header("爆発までの時間を設定したい場合")]
     public bool Set_WaitTime = true;
-    [FlagConditionalDisableInInspector("Set_WaitTime")]
     public WaitClass _waitclass;
 
     private bool IsExplosion = false;
@@ -68,7 +67,7 @@ public class Explosion_Bomb_SC : MonoBehaviour
         if (IsExplosion && other.gameObject.tag == "CanExplosion")  //爆発判定を付与するオブジェクトのタグ
         {
             Explosion();
-            StartCoroutine("WaitTime");
+            //StartCoroutine("WaitTime");
             Destroy(other.gameObject);
         }
     }
@@ -77,10 +76,7 @@ public class Explosion_Bomb_SC : MonoBehaviour
     {
         if (Set_WaitTime)
         {
-            for (int waitCount = _waitclass.delayTime; waitCount > 0; waitCount--)
-            {
-                yield return new WaitForSeconds(1000f * Time.deltaTime);
-            }
+            yield return new WaitForSeconds(300f * Time.deltaTime);
         }
         IsExplosion = true;
     }
