@@ -80,7 +80,7 @@ public class CharacterCameraConstraint : MonoBehaviour
 	/// <summary>
 	/// This method is the handler for the PlayerController.CameraUpdated event, which is used
 	/// to handle whether or not the screen should fade out due to the camera's position (such
-	/// as in a wall), and update the character height based on camera position.
+	/// as in a Wall_Layer), and update the character height based on camera position.
 	///
 	/// Future work: Have the character capsule attempt to match the camera's X,Z position so
 	/// that hit detection and dodging work as expected.  Presently the capsule only grows up

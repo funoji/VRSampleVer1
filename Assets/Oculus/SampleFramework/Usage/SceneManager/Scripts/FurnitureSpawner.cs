@@ -63,7 +63,7 @@ public class FurnitureSpawner : MonoBehaviour
 	            position.y += localScale.y / 2.0f;
 	        }
 
-	        // Special case 02: Set wall thickness to something small instead of default value (1.0m)
+	        // Special case 02: Set Wall_Layer thickness to something small instead of default value (1.0m)
 	        if (_classification.Contains(OVRSceneManager.Classification.WallFace) ||
 	            _classification.Contains(OVRSceneManager.Classification.Ceiling) ||
 	            _classification.Contains(OVRSceneManager.Classification.Floor))
