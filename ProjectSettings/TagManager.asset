@@ -8,6 +8,7 @@ TagManager:
   - SamplesInfoPanel
   - Bullet
   - CanExplosion
+  - Hand
   layers:
   - Default
   - TransparentFX

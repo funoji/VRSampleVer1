@@ -26,6 +26,7 @@ using UnityEngine.UI;
 /// <summary>
 /// UI pointer driven by gaze input.
 /// </summary>
+[RequireComponent(typeof(LineRenderer))]
 public class OVRGazePointer : OVRCursor {
     private Transform gazeIcon; //the transform that rotates according to our movement
 
@@ -83,6 +84,14 @@ public class OVRGazePointer : OVRCursor {
     private OVRProgressIndicator progressIndicator;
 
     private static OVRGazePointer _instance;
+
+    ////1.変数を宣言
+    //LineRenderer lineRenderer;
+
+    //[SerializeField]
+    //GameObject startPointObj, endPointObj;
+
+
     public static OVRGazePointer instance
     {
         // If there's no GazePointer already in the scene, instanciate one now.
@@ -159,14 +168,32 @@ public class OVRGazePointer : OVRCursor {
 
         _instance = this;
 
-		gazeIcon = transform.Find("GazeIcon");
+        gazeIcon = transform.Find("GazeIcon");
         progressIndicator = transform.GetComponent<OVRProgressIndicator>();
+
+        ////2.GetComponentします
+        //lineRenderer = this.gameObject.GetComponent<LineRenderer>();
+
+        //currentScale = 1;
+
+        //if (_instance != null && _instance != this)
+        //{
+        //    enabled = false;
+        //    DestroyImmediate(this);
+        //    return;
+        //}
+
+        //_instance = this;
+
+        ////3.PointerIconはポインターアイコンのオブジェクト名が入る
+        //gazeIcon = transform.Find("PointerIcon");
+        //progressIndicator = transform.GetComponent<OVRProgressIndicator>();
     }
 
     void Update ()
     {
-		if (rayTransform == null && Camera.main != null)
-			rayTransform = Camera.main.transform;
+        if (rayTransform == null && Camera.main != null)
+            rayTransform = Camera.main.transform;
 
         // Move the gaze cursor to keep it in the middle of the view
         transform.position = rayTransform.position + rayTransform.forward * depth;
@@ -180,6 +207,30 @@ public class OVRGazePointer : OVRCursor {
         {
             Show();
         }
+
+        ////4.レーザーの位置を決定
+        //lineRenderer.SetPosition(0, startPointObj.transform.position);
+        //lineRenderer.SetPosition(1, endPointObj.transform.position);
+
+        //if (rayTransform == null && Camera.main != null)
+        //    rayTransform = Camera.main.transform;
+
+
+        //transform.position = rayTransform.position + rayTransform.forward * depth;
+
+
+        //if (visibilityStrength == 0 && !hidden)
+        //{
+        //    Hide();
+        //    //5.消す
+        //    lineRenderer.enabled = false;
+        //}
+        //else if (visibilityStrength > 0 && hidden)
+        //{
+        //    Show();
+        //    //6.出す
+        //    lineRenderer.enabled = true;
+        //}
     }
 
     /// <summary>
@@ -278,5 +329,4 @@ public class OVRGazePointer : OVRCursor {
             GetComponent<Renderer>().enabled = true;
         hidden = false;
     }
-
 }
