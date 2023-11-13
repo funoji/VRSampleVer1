@@ -9,6 +9,9 @@ TagManager:
   - Bullet
   - CanExplosion
   - Hand
+  - LHand
+  - RHand
+  - SelectHand
   layers:
   - Default
   - TransparentFX
