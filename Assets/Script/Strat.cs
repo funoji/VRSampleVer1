@@ -6,7 +6,7 @@ public class Strat : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             SceneManager.LoadScene("Ingame");
         }
