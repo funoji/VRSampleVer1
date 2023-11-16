@@ -1,60 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ToHands : MonoBehaviour
+namespace Oculus.Interaction
 {
-    private bool invaded;//フィールドに入ったか
-    [SerializeField] GameObject[] Hands;
-    [SerializeField] float speed = 3.0f;
-    Rigidbody CubeRig;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ToHands : MonoBehaviour
     {
-        CubeRig = this.gameObject.GetComponent<Rigidbody>();
-    }
+        private bool invaded;//フィールドに入ったか
+        [SerializeField] OVRHand[] Hands;
+        [SerializeField] float speed = 3.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (invaded)
+        private float scaleed;
+        private float before;
+
+        [SerializeField] RayInteractor[] _rayInteractor;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            //スタート位置、ターゲットの座標、速度
-            transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
-                speed * Time.deltaTime);
-
-            //スタート位置、ターゲットの座標、速度
-            transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
-                speed * Time.deltaTime);
-            //Rigidbodyを停止
-            //CubeRig.velocity = Vector3.zero;
+            this.AssertField(_rayInteractor, nameof(_rayInteractor));
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (invaded)
+        // Update is called once per frame
+        void Update()
         {
-            if (other.gameObject.CompareTag("Hand"))
+            if (invaded)
             {
-                CubeRig.isKinematic = true;
-                transform.parent = Hands[0].gameObject.transform;
-                transform.parent = Hands[1].gameObject.transform;
-                Debug.Log("ToHand!");
+                if (_rayInteractor[0].ModeLR)
+                {
+                    //GameObject LHand = GameObject.Find("LeftHandAnchor");
+                    // transform.position = Vector3.MoveTowards(transform.position, LHand.transform.position,
+                    //speed * Time.deltaTime);
+
+                    transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
+                   speed * Time.deltaTime);
+                }
+
+                if(!_rayInteractor[1].ModeLR)
+                {
+                    //GameObject RHand = GameObject.Find("RightHandAnchor");
+                    // transform.position = Vector3.MoveTowards(transform.position, RHand.transform.position,
+                    //speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
+                   speed * Time.deltaTime);
+                }
+
+                before += Time.deltaTime * 0.5f;
+                //scaleedの値を小さく
+                scaleed = 0.2f - before;
+
+                //scaleedに制限を加える。
+                scaleed = Mathf.Clamp(scaleed, 0.02f, 0.2f);
+
+                transform.localScale = new Vector3(scaleed, scaleed, scaleed);
             }
         }
-    }
 
-    public void StartHikiyose()
-    {
-        invaded = true;
-    }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (invaded)
+            {
+                if (other.gameObject.CompareTag("Hand"))
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
 
-    public void EndHikiyose()
-    {
-        CubeRig.isKinematic = false;
-        invaded = false;
-        transform.parent = null;
+        public void StartHikiyose()
+        {
+            invaded = true;
+        }
     }
 }

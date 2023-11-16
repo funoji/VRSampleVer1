@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(LineRenderer))]
-public class MojiTest : MonoBehaviour
+public class LaserTest : MonoBehaviour
 {
     [SerializeField]
     GameObject hand;
@@ -38,12 +38,14 @@ public class MojiTest : MonoBehaviour
     void OnRay()
     {
         Vector3 direction = hand.transform.forward * lazerDistance;
-        Vector3 rayStartPosition = hand.transform.forward * lazerStartPointDistance;
+        //Vector3 rayStartPosition = hand.transform.position * lazerStartPointDistance;
         Vector3 pos = hand.transform.position;
         RaycastHit hit;
-        Ray ray = new Ray(pos + rayStartPosition, hand.transform.forward);
+        //Ray ray = new Ray(pos + rayStartPosition, hand.transform.forward);
+        Ray ray = new Ray(pos, hand.transform.forward);
 
-        lineRenderer.SetPosition(0, pos + rayStartPosition);
+        //lineRenderer.SetPosition(0, pos + rayStartPosition);
+        lineRenderer.SetPosition(0, pos);
 
         if (Physics.Raycast(ray, out hit, lazerDistance))
         {

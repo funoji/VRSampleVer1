@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Oculus.Interaction.Surfaces;
+using UnityEngine.Windows.Speech;
 
 namespace Oculus.Interaction
 {
@@ -35,6 +36,9 @@ namespace Oculus.Interaction
 
         [SerializeField]
         private float _maxRayLength = 5f;
+
+        [SerializeField]
+        private bool _modeLR = false;//true = Left/false = Right
 
         [SerializeField]
         [Tooltip("(Meters, World) The threshold below which distances to a surface " +
@@ -51,6 +55,19 @@ namespace Oculus.Interaction
         public Quaternion Rotation { get; protected set; }
         public Vector3 Forward { get; protected set; }
         public Vector3 End { get; set; }
+
+        public bool ModeLR
+        {
+            get
+            {
+                return this._modeLR;
+            }
+
+            set
+            {
+                _modeLR = value;
+            }
+        }
 
         public float MaxRayLength
         {
@@ -160,6 +177,7 @@ namespace Oculus.Interaction
             _movement = null;
         }
 
+        //éwÇ≈ëIÇÒÇæéûÇÃåƒÇ—èoÇµ
         protected override void DoSelectUpdate()
         {
             RayInteractable interactable = _selectedInteractable;
@@ -187,6 +205,15 @@ namespace Oculus.Interaction
             {
                 End = Origin + MaxRayLength * Forward;
             }
+
+            //if(ModeLR)
+            //{
+            //    Debug.Log("LeftMode");
+            //}
+            //else
+            //{
+            //    Debug.Log("RightMode");
+            //}
         }
 
         protected override Pose ComputePointerPose()

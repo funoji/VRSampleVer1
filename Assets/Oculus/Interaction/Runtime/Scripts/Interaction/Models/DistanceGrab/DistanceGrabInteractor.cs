@@ -164,6 +164,8 @@ namespace Oculus.Interaction
 
             _movement.UpdateTarget(_grabTarget.GetPose());
             _movement.Tick();
+
+
         }
 
         #region Inject
