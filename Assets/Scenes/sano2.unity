@@ -1140,6 +1140,10 @@ PrefabInstance:
       value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 8073531219971943279, guid: edede8a61ff7a894dab2e18e4771919c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073531219971943279, guid: edede8a61ff7a894dab2e18e4771919c, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
