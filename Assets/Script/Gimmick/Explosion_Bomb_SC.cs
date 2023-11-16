@@ -68,8 +68,7 @@ public class Explosion_Bomb_SC : MonoBehaviour
         {
             Explosion();
             //StartCoroutine("WaitTime");
-            //Destroy(other.gameObject);
-            BombArea.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 
