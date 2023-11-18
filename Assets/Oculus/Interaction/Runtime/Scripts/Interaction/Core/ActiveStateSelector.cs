@@ -40,6 +40,11 @@ namespace Oculus.Interaction
         public event Action WhenSelected = delegate { };
         public event Action WhenUnselected = delegate { };
 
+        int ShootCnt = 0;
+        int MaxShootCnt = 3;
+
+        [SerializeField] GameObject SuikomiObj;
+
         protected virtual void Awake()
         {
             ActiveState = _activeState as IActiveState;
@@ -55,10 +60,13 @@ namespace Oculus.Interaction
             if (_selecting != ActiveState.Active)
             {
                 _selecting = ActiveState.Active;
-                if (_selecting)
+
+
+                if (_selecting && ShootCnt < MaxShootCnt)
                 {
                     GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);
-                    //Vector3 direction = (shotpoint.transform.position - transform.position).normalized;
+                    //Vector3 direction = (shotpoint.transform.position - transform.position).normalized;                      
+                    ShootCnt++;
                     NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
                     WhenSelected();
                 }
@@ -66,6 +74,13 @@ namespace Oculus.Interaction
                 {
                     WhenUnselected();
                 }
+            }
+
+            if(ShootCnt == MaxShootCnt)
+            {
+                if (gameObject.activeSelf) gameObject.SetActive(false);
+                if (!SuikomiObj.activeSelf) SuikomiObj.SetActive(true);
+                ShootCnt = 0;
             }
         }
 

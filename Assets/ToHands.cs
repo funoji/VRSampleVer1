@@ -11,8 +11,8 @@ namespace Oculus.Interaction
         [SerializeField] OVRHand[] Hands;
         [SerializeField] float speed = 3.0f;
 
-        private float scaleed;
-        private float before;
+        private float scaleedSize;
+        private float beforeSize;
 
         [SerializeField] RayInteractor[] _rayInteractor;
 
@@ -46,14 +46,14 @@ namespace Oculus.Interaction
                    speed * Time.deltaTime);
                 }
 
-                before += Time.deltaTime * 0.5f;
+                beforeSize += Time.deltaTime * 0.5f;
                 //scaleedÇÃílÇè¨Ç≥Ç≠
-                scaleed = 0.2f - before;
+                scaleedSize = 0.2f - beforeSize;
 
                 //scaleedÇ…êßå¿Çâ¡Ç¶ÇÈÅB
-                scaleed = Mathf.Clamp(scaleed, 0.02f, 0.2f);
+                scaleedSize = Mathf.Clamp(scaleedSize, 0.02f, 0.2f);
 
-                transform.localScale = new Vector3(scaleed, scaleed, scaleed);
+                transform.localScale = new Vector3(scaleedSize, scaleedSize, scaleedSize);
             }
         }
 
@@ -61,9 +61,16 @@ namespace Oculus.Interaction
         {
             if (invaded)
             {
-                if (other.gameObject.CompareTag("Hand"))
+                if (other.gameObject.CompareTag("LHand"))
                 {
                     Destroy(gameObject);
+                    _rayInteractor[0].ModeLR = false;
+                }
+
+                if (other.gameObject.CompareTag("RHand"))
+                {
+                    Destroy(gameObject);
+                    _rayInteractor[1].ModeLR = true;
                 }
             }
         }

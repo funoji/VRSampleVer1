@@ -84,6 +84,9 @@ namespace Oculus.Interaction
         public SurfaceHit? CollisionInfo { get; protected set; }
         public Ray Ray { get; protected set; }
 
+        int BulletCountL = 0;
+        int BulletCountR = 0;
+
         protected override void Awake()
         {
             base.Awake();
@@ -205,15 +208,6 @@ namespace Oculus.Interaction
             {
                 End = Origin + MaxRayLength * Forward;
             }
-
-            //if(ModeLR)
-            //{
-            //    Debug.Log("LeftMode");
-            //}
-            //else
-            //{
-            //    Debug.Log("RightMode");
-            //}
         }
 
         protected override Pose ComputePointerPose()
