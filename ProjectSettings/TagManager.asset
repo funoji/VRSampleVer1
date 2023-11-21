@@ -12,6 +12,7 @@ TagManager:
   - LHand
   - RHand
   - SelectHand
+  - Enemy
   layers:
   - Default
   - TransparentFX
