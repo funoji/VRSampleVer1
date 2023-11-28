@@ -19,7 +19,7 @@ public class GameoverSC : MonoBehaviour
     private bool IsGameOver = false;
     void Start()
     {
-        GameOverText.enabled = false;
+        GameOverText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class GameoverSC : MonoBehaviour
     {
         if (IsGameOver)
         {
-            _alpha+=0.01f * Time.unscaledDeltaTime;
+            _alpha+=1f * Time.unscaledDeltaTime;
             GameOverText.color = new Color(_color._R, _color._G, _color._B, _alpha);
         }
     }
@@ -37,7 +37,7 @@ public class GameoverSC : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             IsGameOver = true;
-            GameOverText.enabled = true;
+            GameOverText.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
     }

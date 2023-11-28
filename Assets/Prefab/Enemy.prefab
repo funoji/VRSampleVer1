@@ -174,4 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3339048888915851784, guid: 362d07439f368b74087146f032a4fe31, type: 3}
-  EnemySpeed: 0.01
+  _text: {fileID: 2274438958897734208, guid: 19d07a6449978ca458f292e11520c52a, type: 3}
+  EnemySpeed: 1
