@@ -18,16 +18,17 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField]
     [Header("ê∂ê¨Ç≥ÇÍÇÈä‘äu")]
     private float spawnTime = 1.0f;
-    [SerializeField] private TextMeshProUGUI TMpro;
+    [SerializeField] private TextMeshProUGUI _text;
 
     // åoâﬂéûä‘
     private float time;
     public static int Enemy_Count = 15;
-    private int Count = 0;
+    public static int Count = 0;
+    [SerializeField]private Enemy_SC _enem;
 
     private void Start()
     {
-        TMpro.enabled = false;
+        _text.gameObject.SetActive(false);
     }
 
     void Update()
@@ -47,9 +48,9 @@ public class SpawnEnemy : MonoBehaviour
 
             time = 0f;
         }
-        if(Count == Enemy_Count)
+        if (Enemy_SC.ScoreCount==Enemy_Count)
         {
-            TMpro.enabled = true;
+            _text.gameObject.SetActive(true);
         }
     }
 }
