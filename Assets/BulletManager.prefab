@@ -41,16 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6304536414910785814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18cb5697a2cef0c40b950e40cfa68e95, type: 3}
+  m_Script: {fileID: 11500000, guid: 23445d10ea1bb2042a482ccedca9c758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTag: Enemy
-  _rayInteractor:
-  - {fileID: 0}
-  - {fileID: 0}
-  GunActions:
-  - {fileID: 0}
-  - {fileID: 0}
-  RayInstractorObjs:
-  - {fileID: 0}
-  - {fileID: 0}
+  _rayInteractor: []
+  GunActions: []
+  RayInstractorObjs: []
