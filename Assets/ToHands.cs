@@ -14,12 +14,15 @@ namespace Oculus.Interaction
         private float scaleedSize;
         private float beforeSize;
 
+        Rigidbody EnemyRig;
+
         [SerializeField] RayInteractor[] _rayInteractor;
 
         // Start is called before the first frame update
         void Start()
         {
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
+            EnemyRig = this.GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -33,6 +36,8 @@ namespace Oculus.Interaction
                     // transform.position = Vector3.MoveTowards(transform.position, LHand.transform.position,
                     //speed * Time.deltaTime);
 
+                    EnemyRig.useGravity = false;
+
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
                 }
@@ -42,6 +47,9 @@ namespace Oculus.Interaction
                     //GameObject RHand = GameObject.Find("RightHandAnchor");
                     // transform.position = Vector3.MoveTowards(transform.position, RHand.transform.position,
                     //speed * Time.deltaTime);
+
+                    EnemyRig.useGravity = false;
+
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
                    speed * Time.deltaTime);
                 }

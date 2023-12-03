@@ -3137,6 +3137,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
+      propertyPath: GunActions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
       propertyPath: GunActions.Array.data[0]
       value: 
       objectReference: {fileID: 1783566337}
@@ -3144,6 +3148,14 @@ PrefabInstance:
       propertyPath: GunActions.Array.data[1]
       value: 
       objectReference: {fileID: 2024186988}
+    - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
+      propertyPath: _rayInteractor.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
+      propertyPath: RayInstractorObjs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
       propertyPath: _rayInteractor.Array.data[0]
       value: 

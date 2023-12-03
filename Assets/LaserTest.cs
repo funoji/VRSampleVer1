@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(LineRenderer))]
 public class LaserTest : MonoBehaviour
 {
+    #region//レーザーポインターその１
     [SerializeField]
     GameObject hand;
-
     LineRenderer lineRenderer;
     Vector3 hitPos;
     Vector3 tmpPos;
@@ -59,4 +60,5 @@ public class LaserTest : MonoBehaviour
 
         Debug.DrawRay(ray.origin, ray.direction, Color.red, 0.1f);
     }
+    #endregion
 }
