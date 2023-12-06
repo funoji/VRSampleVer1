@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 5692448621163546947}
   m_Layer: 0
   m_Name: HandRayInteractor
-  m_TagString: LHand
+  m_TagString: RHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

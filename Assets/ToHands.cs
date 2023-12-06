@@ -8,18 +8,31 @@ namespace Oculus.Interaction
     public class ToHands : MonoBehaviour
     {
         private bool invaded;//フィールドに入ったか
-        [SerializeField] OVRHand[] Hands;
+        [SerializeField] GameObject[] Hands;
         [SerializeField] float speed = 3.0f;
 
         private float scaleedSize;
         private float beforeSize;
 
+        Rigidbody EnemyRig;
+
         [SerializeField] RayInteractor[] _rayInteractor;
 
+        //private GameObject[] obj_tes;
         // Start is called before the first frame update
         void Start()
         {
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
+            //obj_tes[0] = GameObject.Find("LeftHandAnchor");
+            //Hands[0] = obj_tes[0].GetComponent<GameObject>();
+            //GameObject obj2 = GameObject.Find("RightHandAnchor");
+            //Hands[1] = obj2.GetComponent<GameObject>();
+            ////GameObject obj3 = GameObject.Find("HandRayInteractorL");
+            ////_rayInteractor[0] = obj3.GetComponent<RayInteractor>();
+            ////GameObject obj4 = GameObject.Find("HandRayInteractorR");
+            ////_rayInteractor[1] = obj3.GetComponent<RayInteractor>();
+
+            EnemyRig = this.GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -33,6 +46,8 @@ namespace Oculus.Interaction
                     // transform.position = Vector3.MoveTowards(transform.position, LHand.transform.position,
                     //speed * Time.deltaTime);
 
+                    EnemyRig.useGravity = false;
+
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
                 }
@@ -42,6 +57,8 @@ namespace Oculus.Interaction
                     //GameObject RHand = GameObject.Find("RightHandAnchor");
                     // transform.position = Vector3.MoveTowards(transform.position, RHand.transform.position,
                     //speed * Time.deltaTime);
+                    EnemyRig.useGravity = false;
+
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
                    speed * Time.deltaTime);
                 }
