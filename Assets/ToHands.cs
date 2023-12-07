@@ -7,8 +7,8 @@ namespace Oculus.Interaction
 {
     public class ToHands : MonoBehaviour
     {
-        private bool invaded;//ƒtƒB[ƒ‹ƒh‚É“ü‚Á‚½‚©
-        [SerializeField] OVRHand[] Hands;
+        private bool invaded;//ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å…¥ã£ãŸã‹
+        [SerializeField] GameObject[] Hands;
         [SerializeField] float speed = 3.0f;
 
         private float scaleedSize;
@@ -18,10 +18,20 @@ namespace Oculus.Interaction
 
         [SerializeField] RayInteractor[] _rayInteractor;
 
+        //private GameObject[] obj_tes;
         // Start is called before the first frame update
         void Start()
         {
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
+            //obj_tes[0] = GameObject.Find("LeftHandAnchor");
+            //Hands[0] = obj_tes[0].GetComponent<GameObject>();
+            //GameObject obj2 = GameObject.Find("RightHandAnchor");
+            //Hands[1] = obj2.GetComponent<GameObject>();
+            ////GameObject obj3 = GameObject.Find("HandRayInteractorL");
+            ////_rayInteractor[0] = obj3.GetComponent<RayInteractor>();
+            ////GameObject obj4 = GameObject.Find("HandRayInteractorR");
+            ////_rayInteractor[1] = obj3.GetComponent<RayInteractor>();
+
             EnemyRig = this.GetComponent<Rigidbody>();
         }
 
@@ -55,10 +65,10 @@ namespace Oculus.Interaction
                 }
 
                 beforeSize += Time.deltaTime * 0.5f;
-                //scaleed‚Ì’l‚ğ¬‚³‚­
+                //scaleedã®å€¤ã‚’å°ã•ã
                 scaleedSize = 0.2f - beforeSize;
 
-                //scaleed‚É§ŒÀ‚ğ‰Á‚¦‚éB
+                //scaleedã«åˆ¶é™ã‚’åŠ ãˆã‚‹ã€‚
                 scaleedSize = Mathf.Clamp(scaleedSize, 0.02f, 0.2f);
 
                 transform.localScale = new Vector3(scaleedSize, scaleedSize, scaleedSize);
