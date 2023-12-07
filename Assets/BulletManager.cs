@@ -21,6 +21,7 @@ namespace Oculus.Interaction
         [SerializeField] GameObject[] GunActions;//0 Left / 1 Right
         [SerializeField] GameObject[] RayInstractorObjs;//0 Left / 1 Right
 
+        public static bool IsFillList = false;
         void Start()
         {
             // シーン内の全ての敵を取得してリストに追加
@@ -39,6 +40,18 @@ namespace Oculus.Interaction
 
         void Update()
         {
+            //if (SpawnEnemy.IsSpawn)
+            //{
+            //    GameObject[] allEnemy = FindObjectsOfType<GameObject>();
+            //    foreach (GameObject obj in allEnemy)
+            //    {
+            //        if (obj.CompareTag(enemyTag))
+            //        {
+            //            objectsToWatch.Add(obj);
+            //        }
+            //    }
+            //    IsFillList = true;
+            //}
             // 監視対象の敵が存在し、破壊されたかどうかを確認
             for (int i = objectsToWatch.Count - 1; i >= 0; i--)
             {
@@ -52,6 +65,7 @@ namespace Oculus.Interaction
 
                     if(_rayInteractor[1].ModeLR)
                     {
+                        Debug.Log("rayinteractorR_Is_Fill");
                         Mathf.Clamp(BulletCountR, BulletMinCount, BulletMaxCount);
                         BulletCountR++;
                     }

@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class Enemy_SC : MonoBehaviour
 {
-    [SerializeField]
-    [Header("Playerをアタッチ")]
-    private GameObject target;
     public float EnemySpeed = 0.01f;
 
     public static int ScoreCount = 0;

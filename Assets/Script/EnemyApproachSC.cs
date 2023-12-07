@@ -27,7 +27,6 @@ public class EnemyApproachSC : MonoBehaviour
                 defaultNum++;
             }
         }
-        Debug.Log(defaultNum);
     }
 
     void Update()
@@ -58,7 +57,6 @@ public class EnemyApproachSC : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Exit");
             IsApproach = false;
             IsBlinking = false;
         }
@@ -71,7 +69,6 @@ public class EnemyApproachSC : MonoBehaviour
             IsBlinking = true;
             while (true)
             {
-                Debug.Log(IsApproach);
                 WarningPanel.enabled = !WarningPanel.enabled;
                 yield return new WaitForSeconds(interval);
                 Collider[] hitcollider = Physics.OverlapSphere(this.gameObject.transform.localScale, 6);
@@ -82,7 +79,6 @@ public class EnemyApproachSC : MonoBehaviour
                         enemynum++;
                     }
                 }
-                Debug.Log(enemynum);
                 if (enemynum == 0)
                 {
                     WarningPanel.enabled = false;
@@ -92,10 +88,5 @@ public class EnemyApproachSC : MonoBehaviour
                 enemynum = 0;
             }
         }
-    }
-
-    private void CheckFlag()
-    {
-
     }
 }
