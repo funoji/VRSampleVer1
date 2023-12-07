@@ -7,7 +7,7 @@ namespace Oculus.Interaction
 {
     public class ToHands : MonoBehaviour
     {
-        private bool invaded;//ƒtƒB[ƒ‹ƒh‚É“ü‚Á‚½‚©
+        private bool invaded;//ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã«å…¥ã£ãŸã‹
         [SerializeField] GameObject[] Hands;
         [SerializeField] float speed = 3.0f;
 
@@ -57,6 +57,7 @@ namespace Oculus.Interaction
                     //GameObject RHand = GameObject.Find("RightHandAnchor");
                     // transform.position = Vector3.MoveTowards(transform.position, RHand.transform.position,
                     //speed * Time.deltaTime);
+
                     EnemyRig.useGravity = false;
 
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
@@ -64,10 +65,10 @@ namespace Oculus.Interaction
                 }
 
                 beforeSize += Time.deltaTime * 0.5f;
-                //scaleed‚Ì’l‚ğ¬‚³‚­
+                //scaleedã®å€¤ã‚’å°ã•ã
                 scaleedSize = 0.2f - beforeSize;
 
-                //scaleed‚É§ŒÀ‚ğ‰Á‚¦‚éB
+                //scaleedã«åˆ¶é™ã‚’åŠ ãˆã‚‹ã€‚
                 scaleedSize = Mathf.Clamp(scaleedSize, 0.02f, 0.2f);
 
                 transform.localScale = new Vector3(scaleedSize, scaleedSize, scaleedSize);

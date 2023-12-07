@@ -1353,6 +1353,11 @@ Transform:
   m_Father: {fileID: 1771085402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1211644676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4750522865368501301, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
+  m_PrefabInstance: {fileID: 6914856992784071343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1235515885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3019,7 +3024,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4646890792270991271, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
   m_PrefabInstance: {fileID: 6914856992784071343}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1211644676}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb7623a8f0b49cf4dbaa40aea4d4be64, type: 3}
@@ -3137,6 +3142,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
+      propertyPath: GunActions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
       propertyPath: GunActions.Array.data[0]
       value: 
       objectReference: {fileID: 1783566337}
@@ -3144,6 +3153,14 @@ PrefabInstance:
       propertyPath: GunActions.Array.data[1]
       value: 
       objectReference: {fileID: 2024186988}
+    - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
+      propertyPath: _rayInteractor.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
+      propertyPath: RayInstractorObjs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6304536414910785813, guid: 21b7a12c455624141adf41427d428240, type: 3}
       propertyPath: _rayInteractor.Array.data[0]
       value: 
@@ -3220,6 +3237,18 @@ PrefabInstance:
     - target: {fileID: 1368760777951079057, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333737795113736932, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333737795113736934, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1211644676}
+    - target: {fileID: 4333737795113736934, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
