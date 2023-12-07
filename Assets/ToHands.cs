@@ -7,8 +7,8 @@ namespace Oculus.Interaction
 {
     public class ToHands : MonoBehaviour
     {
-        private bool invaded;//フィールドに入ったか
-        [SerializeField] GameObject[] Hands;
+        private bool invaded;//�t�B�[���h�ɓ�������
+/*        [SerializeField]*/public GameObject[] Hands;
         [SerializeField] float speed = 3.0f;
 
         private float scaleedSize;
@@ -16,21 +16,21 @@ namespace Oculus.Interaction
 
         Rigidbody EnemyRig;
 
-        [SerializeField] RayInteractor[] _rayInteractor;
-
-        //private GameObject[] obj_tes;
+/*        [SerializeField] */public RayInteractor[] _rayInteractor;
+        
+        GameObject[] obj_tes;
+        private bool flag = false;
         // Start is called before the first frame update
         void Start()
         {
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
-            //obj_tes[0] = GameObject.Find("LeftHandAnchor");
-            //Hands[0] = obj_tes[0].GetComponent<GameObject>();
-            //GameObject obj2 = GameObject.Find("RightHandAnchor");
-            //Hands[1] = obj2.GetComponent<GameObject>();
-            ////GameObject obj3 = GameObject.Find("HandRayInteractorL");
-            ////_rayInteractor[0] = obj3.GetComponent<RayInteractor>();
-            ////GameObject obj4 = GameObject.Find("HandRayInteractorR");
-            ////_rayInteractor[1] = obj3.GetComponent<RayInteractor>();
+
+            Hands[0] = GameObject.Find("LeftHandAnchor");
+            GameObject obj = GameObject.Find("HandRayInteractorL");
+            _rayInteractor[0] = obj.GetComponent<RayInteractor>();
+            Hands[1] = GameObject.Find("RightHandAnchor");
+            GameObject obj1 = GameObject.Find("HandRayInteractorR");
+            _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
 
             EnemyRig = this.GetComponent<Rigidbody>();
         }
@@ -38,6 +38,30 @@ namespace Oculus.Interaction
         // Update is called once per frame
         void Update()
         {
+            //if (this.gameObject.activeSelf&&flag==false)
+            //{
+            //    //Hands[0] = GameObject.Find("LeftHandAnchor");
+            //    //Hands[1] = GameObject.Find("RightHandAnchor");
+
+            //    GameObject obj = GameObject.Find("HandRayInteractorL");
+            //    _rayInteractor[0] = obj.GetComponent<RayInteractor>();
+            //    GameObject obj1 = GameObject.Find("HandRayInteractorR");
+            //    _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
+            //    flag = true;
+            //}
+            if (SpawnEnemy.IsSpawn&&BulletManager.IsFillList)
+            {
+                EnemyRig = this.GetComponent<Rigidbody>();
+                Hands[0] = GameObject.Find("LeftHandAnchor");
+                GameObject obj = GameObject.Find("HandRayInteractorL");
+                _rayInteractor[0] = obj.GetComponent<RayInteractor>();
+                Hands[1] = GameObject.Find("RightHandAnchor");
+                GameObject obj1 = GameObject.Find("HandRayInteractorR");
+                _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
+                SpawnEnemy.IsSpawn = false;
+                BulletManager.IsFillList = false;
+                Debug.Log("������");
+            }
             if (invaded)
             {
                 if (_rayInteractor[0].ModeLR)
@@ -46,7 +70,7 @@ namespace Oculus.Interaction
                     // transform.position = Vector3.MoveTowards(transform.position, LHand.transform.position,
                     //speed * Time.deltaTime);
 
-                    EnemyRig.useGravity = false;
+                    //EnemyRig.useGravity = false;
 
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
@@ -59,6 +83,7 @@ namespace Oculus.Interaction
                     //speed * Time.deltaTime);
 
                     EnemyRig.useGravity = false;
+
 
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
                    speed * Time.deltaTime);
@@ -88,6 +113,7 @@ namespace Oculus.Interaction
                 if (other.gameObject.CompareTag("RHand"))
                 {
                     Destroy(gameObject);
+                        Debug.Log(gameObject);
                     _rayInteractor[1].ModeLR = true;
                 }
             }
