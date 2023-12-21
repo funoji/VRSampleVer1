@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyApproachSC : MonoBehaviour
 {
     [SerializeField] private Image WarningPanel;
+    [SerializeField] private AudioClip WarningClip;
     public float interval = 0.1f;
     public float AP_EnemySpeed = 0.8f;
 
@@ -16,8 +17,10 @@ public class EnemyApproachSC : MonoBehaviour
     private Collider[] defaultColl;
     private int defaultNum = 0;
     private int enemynum = 0;
+    private AudioSource _audioSource;
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         WarningPanel.enabled = false;
         defaultColl = Physics.OverlapSphere(this.gameObject.transform.localScale, 6);
         for (int count = 0; count < defaultColl.Length; count++)
@@ -66,6 +69,7 @@ public class EnemyApproachSC : MonoBehaviour
     {
         if (!IsBlinking)
         {
+            _audioSource.PlayOneShot(WarningClip);
             IsBlinking = true;
             while (true)
             {
