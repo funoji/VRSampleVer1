@@ -12,10 +12,13 @@ public class Enemy_SC : MonoBehaviour
 
     private GameObject PlayerPos;
     public bool ClearFlag = false;
+    [SerializeField] private AudioClip _audioclip;
+    private AudioSource _audioSource;
 
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         PlayerPos = GameObject.Find("GameOverArea");
     }
 
@@ -38,6 +41,7 @@ public class Enemy_SC : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             Destroy(this.gameObject);
+            _audioSource.PlayOneShot(_audioclip);
             Debug.Log("Score="+ScoreCount);
             Debug.Log("EnemyCount=" + SpawnEnemy.Enemy_Count);
             ScoreCount++;
