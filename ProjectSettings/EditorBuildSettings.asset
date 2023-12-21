@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/title.unity
-    guid: 7a1b52dfa3b647540a301b6263e79d47
-  - enabled: 1
-    path: Assets/Scenes/sizukistagedesign.unity
-    guid: 1df63529ac183da4bbeffbb034694be8
+    path: Assets/Scenes/addshot.unity
+    guid: aa36ab76040525c47bfa93e7578f54f3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f014c0891bc411140b8467aed92fccd9, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: be73544ea42902c4f972f46a96ba972b, type: 2}

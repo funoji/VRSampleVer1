@@ -40,11 +40,11 @@ public class Enemy_SC : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            Destroy(this.gameObject);
             _audioSource.PlayOneShot(_audioclip);
             Debug.Log("Score="+ScoreCount);
             Debug.Log("EnemyCount=" + SpawnEnemy.Enemy_Count);
             ScoreCount++;
-            Destroy(this.gameObject);
         }
     }
 }
