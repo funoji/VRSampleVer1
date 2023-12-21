@@ -13,7 +13,6 @@ TagManager:
   - RHand
   - SelectHand
   - Enemy
-  - StageEnd
   layers:
   - Default
   - TransparentFX

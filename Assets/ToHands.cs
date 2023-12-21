@@ -20,12 +20,9 @@ namespace Oculus.Interaction
         
         GameObject[] obj_tes;
         private bool flag = false;
-        [SerializeField]private AudioClip _audio;
-        private AudioSource _audioSource;
         // Start is called before the first frame update
         void Start()
         {
-            _audioSource = GetComponent<AudioSource>();
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
 
             Hands[0] = GameObject.Find("LeftHandAnchor");
@@ -75,7 +72,6 @@ namespace Oculus.Interaction
 
                     //EnemyRig.useGravity = false;
 
-                    _audioSource.PlayOneShot(_audio);
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
                 }
@@ -88,7 +84,7 @@ namespace Oculus.Interaction
 
                     EnemyRig.useGravity = false;
 
-                    _audioSource.PlayOneShot(_audio);
+
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
                    speed * Time.deltaTime);
                 }
