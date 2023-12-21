@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySpeed: 0.4
   ClearFlag: 0
+  _audioclip: {fileID: 8300000, guid: f6658c8d76ccf384fbbc48c3679af22a, type: 3}
 --- !u!65 &2153656392981713710
 BoxCollider:
   m_ObjectHideFlags: 0
