@@ -75,7 +75,9 @@ namespace Oculus.Interaction
 
                     //EnemyRig.useGravity = false;
 
-                    _audioSource.PlayOneShot(_audio);
+                    if (!flag)
+                        _audioSource.PlayOneShot(_audio);
+                    flag = true;
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
                 }
@@ -88,7 +90,9 @@ namespace Oculus.Interaction
 
                     EnemyRig.useGravity = false;
 
-                    _audioSource.PlayOneShot(_audio);
+                    if (!flag)
+                        _audioSource.PlayOneShot(_audio);
+                    flag = true;
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
                    speed * Time.deltaTime);
                 }
@@ -112,6 +116,7 @@ namespace Oculus.Interaction
                 {
                     Destroy(gameObject);
                     _rayInteractor[0].ModeLR = false;
+                    flag = false;
                 }
 
                 if (other.gameObject.CompareTag("RHand"))
@@ -119,6 +124,7 @@ namespace Oculus.Interaction
                     Destroy(gameObject);
                         Debug.Log(gameObject);
                     _rayInteractor[1].ModeLR = true;
+                    flag = false;
                 }
             }
         }
