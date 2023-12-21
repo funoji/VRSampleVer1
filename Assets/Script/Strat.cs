@@ -8,7 +8,7 @@ public class Strat : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            SceneManager.LoadScene("Ingame");
+            SceneManager.LoadScene("sizukistagedesign");
         }
     }
 }

@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour
 
     // Œo‰ßŽžŠÔ
     private float time;
-    public static int Enemy_Count = 15;
+    public static int Enemy_Count = 50;
     public static int Count = 0;
     [SerializeField]private Enemy_SC _enem;
 
