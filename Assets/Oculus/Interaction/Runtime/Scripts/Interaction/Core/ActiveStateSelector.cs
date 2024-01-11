@@ -28,7 +28,7 @@ namespace Oculus.Interaction
     {
         [SerializeField] GameObject shotpoint;
         [SerializeField] GameObject bullet;
-        [SerializeField]float bulletSpeed = 10f;
+        [SerializeField] float bulletSpeed = 10f;
         [Tooltip("ISelector events will be raised " +
             "based on state changes of this IActiveState.")]
         [SerializeField, Interface(typeof(IActiveState))]
@@ -41,6 +41,12 @@ namespace Oculus.Interaction
         public event Action WhenUnselected = delegate { };
 
         int ShootCnt = 0;
+        public int ReadBulletCnt
+        {
+            get { return ShootCnt; }
+            set { ShootCnt = value; }
+        }
+
         int MaxShootCnt = 3;
 
         [SerializeField] GameObject SuikomiObj;
@@ -67,8 +73,7 @@ namespace Oculus.Interaction
                 if (_selecting && ShootCnt < MaxShootCnt)
                 {
                     Debug.Log("Phase2");
-                    GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);
-                    //Vector3 direction = (shotpoint.transform.position - transform.position).normalized;                      
+                    GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);        
                     ShootCnt++;
                     NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
                     WhenSelected();

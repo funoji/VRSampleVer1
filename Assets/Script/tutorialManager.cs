@@ -6,9 +6,10 @@ using TMPro;
 
 public class tutorialManager : MonoBehaviour
 {
-    [SerializeField] BulletManager bulletManager;
+    [SerializeField] ActiveStateSelector State;
     [SerializeField] TextMeshProUGUI pinchText;
-    [SerializeField] TextMeshPro ShootText;
+    [SerializeField] GameObject ShootText;
+    [SerializeField] GameObject BulletBox;
     bool pinched = false;
     // Start is called before the first frame update
     void Start()
@@ -19,11 +20,11 @@ public class tutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(bulletManager.GetBulletCountL());
-        if (bulletManager.GetBulletCountL() > 0 && bulletManager.GetBulletCountR() > 0 && !pinched)
+        Debug.Log(State.ReadBulletCnt);
+        if (!BulletBox)
         {
             pinchText.enabled = false;
-            ShootText.enabled = true;
+            ShootText.SetActive(true);
         }
     }
 }

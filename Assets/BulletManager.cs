@@ -60,8 +60,6 @@ namespace Oculus.Interaction
                     {
                         Mathf.Clamp(BulletCountL, BulletMinCount, BulletMaxCount);
                         BulletCountL++;
-                        
-               
                     }
 
                     if(_rayInteractor[1].ModeLR)
