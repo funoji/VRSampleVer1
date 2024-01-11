@@ -24,7 +24,7 @@ namespace Oculus.Interaction
         public static bool IsFillList = false;
         void Start()
         {
-            // ƒV[ƒ““à‚Ì‘S‚Ä‚Ì“G‚ğæ“¾‚µ‚ÄƒŠƒXƒg‚É’Ç‰Á
+            // ï¿½Vï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ì‘Sï¿½Ä‚Ì“Gï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Äƒï¿½ï¿½Xï¿½gï¿½É’Ç‰ï¿½
             GameObject[] allEnemy = FindObjectsOfType<GameObject>();
             foreach (GameObject obj in allEnemy)
             {
@@ -52,7 +52,6 @@ namespace Oculus.Interaction
             //    }
             //    IsFillList = true;
             //}
-            // ŠÄ‹‘ÎÛ‚Ì“G‚ª‘¶İ‚µA”j‰ó‚³‚ê‚½‚©‚Ç‚¤‚©‚ğŠm”F
             for (int i = objectsToWatch.Count - 1; i >= 0; i--)
             {
                 if (objectsToWatch[i] == null)
@@ -61,6 +60,8 @@ namespace Oculus.Interaction
                     {
                         Mathf.Clamp(BulletCountL, BulletMinCount, BulletMaxCount);
                         BulletCountL++;
+                        
+               
                     }
 
                     if(_rayInteractor[1].ModeLR)
@@ -89,6 +90,14 @@ namespace Oculus.Interaction
                 _rayInteractor[1].ModeLR = false;
                 BulletCountR = 0;
             }
+        }
+        public int GetBulletCountL()
+        {
+            return BulletCountL;
+        }
+        public int GetBulletCountR()
+        {
+            return BulletCountR;
         }
     }
 }
