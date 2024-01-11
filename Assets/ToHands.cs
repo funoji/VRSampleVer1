@@ -21,13 +21,14 @@ namespace Oculus.Interaction
         GameObject[] obj_tes;
         private bool flag = false;
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
 
             Hands[0] = GameObject.Find("LeftHandAnchor");
             GameObject obj = GameObject.Find("HandRayInteractorL");
             _rayInteractor[0] = obj.GetComponent<RayInteractor>();
+
             Hands[1] = GameObject.Find("RightHandAnchor");
             GameObject obj1 = GameObject.Find("HandRayInteractorR");
             _rayInteractor[1] = obj1.GetComponent<RayInteractor>();

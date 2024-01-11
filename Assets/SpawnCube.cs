@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SpawnCube : MonoBehaviour
 {
-    [SerializeField] GameObject cube;
-    void Update()
-    {
-        if (!cube)
-        {
-            Instantiate(cube);
-        }
-    }
+    //[SerializeField] GameObject cube;
+
+    //public void inst()
+    //{
+    //    Instantiate(cube,transform.position,Quaternion.identity);
+    //    cube.SetActive(false);
+    //    cube.SetActive(true);
+    //}
 }

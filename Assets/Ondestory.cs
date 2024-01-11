@@ -5,14 +5,10 @@ using UnityEngine.UIElements;
 
 public class Ondestory : MonoBehaviour
 {
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Transform pos;
-
-    void Update()
+    [SerializeField] GameObject cube;
+    [SerializeField] GameObject SpawnPoint;
+    private void OnDestroy()
     {
-        if (projectilePrefab == null)
-        {
-            projectilePrefab = Instantiate(projectilePrefab,pos) as GameObject;
-        }
+        Instantiate(cube, SpawnPoint.transform.position, Quaternion.identity);
     }
 }

@@ -558,7 +558,7 @@ MonoBehaviour:
   _selector: {fileID: 2766971740959794232}
   _rayOrigin: {fileID: 7935057271148193077}
   _maxRayLength: 5
-  _modeLR: 1
+  _modeLR: 0
   _equalDistanceThreshold: 0.001
 --- !u!114 &7773354976882363589
 MonoBehaviour:
