@@ -27,6 +27,8 @@ namespace raspberly.ovr
             if (isImmediateMove) transform.position = target.position;
             else transform.position = Vector3.Lerp(transform.position, target.position, followMoveSpeed);
 
+            //Debug.Log(target.position);
+
             rotDif = target.rotation * Quaternion.Inverse(transform.rotation);
             rot = target.rotation;
             if (isLockX) rot.x = 0;
@@ -34,6 +36,8 @@ namespace raspberly.ovr
             if (isLockZ) rot.z = 0;
             if (rotDif.w < rotateSpeedThreshold) transform.rotation = Quaternion.Lerp(transform.rotation, rot, followRotateSpeed * 4);
             else transform.rotation = Quaternion.Lerp(transform.rotation, rot, followRotateSpeed);
+
+            //Debug.Log("aaa " + transform.position);
         }
 
         //‹­§“I‚É“¯Šú‚³‚¹‚½‚¢Žž
@@ -43,4 +47,5 @@ namespace raspberly.ovr
             transform.rotation = targetTransform.rotation;
         }
     }
+
 }

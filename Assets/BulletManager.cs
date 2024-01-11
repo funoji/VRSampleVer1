@@ -39,6 +39,7 @@ namespace Oculus.Interaction
 
         void Update()
         {
+            
             // ŠÄŽ‹‘ÎÛ‚Ì“G‚ª‘¶Ý‚µA”j‰ó‚³‚ê‚½‚©‚Ç‚¤‚©‚ðŠm”F
             for (int i = objectsToWatch.Count - 1; i >= 0; i--)
             {
@@ -48,6 +49,8 @@ namespace Oculus.Interaction
                     {
                         Mathf.Clamp(BulletCountL, BulletMinCount, BulletMaxCount);
                         BulletCountL++;
+                        
+               
                     }
 
                     if(_rayInteractor[1].ModeLR)
@@ -75,6 +78,14 @@ namespace Oculus.Interaction
                 _rayInteractor[1].ModeLR = false;
                 BulletCountR = 0;
             }
+        }
+        public int GetBulletCountL()
+        {
+            return BulletCountL;
+        }
+        public int GetBulletCountR()
+        {
+            return BulletCountR;
         }
     }
 }
