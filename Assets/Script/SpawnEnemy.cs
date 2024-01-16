@@ -24,12 +24,14 @@ public class SpawnEnemy : MonoBehaviour
     private float time;
     public static int Enemy_Count = 10;
     public static int Count = 0;
+    public static bool ClearFlag = false;
     [SerializeField]private Enemy_SC _enem;
 
     public static bool IsSpawn = false;
 
     private void Start()
     {
+        ClearFlag = false;
         _text.gameObject.SetActive(false);
     }
 
@@ -53,6 +55,7 @@ public class SpawnEnemy : MonoBehaviour
         }
         if (Enemy_SC.ScoreCount==Enemy_Count)
         {
+            ClearFlag=true;
             _text.gameObject.SetActive(true);
         }
     }

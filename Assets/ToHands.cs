@@ -10,6 +10,8 @@ namespace Oculus.Interaction
         private bool invaded;//�t�B�[���h�ɓ�������
 /*        [SerializeField]*/public GameObject[] Hands;
         [SerializeField] float speed = 3.0f;
+        [SerializeField] private AudioClip HikiyoseSE;
+        private AudioSource _source;
 
         private float scaleedSize;
         private float beforeSize;
@@ -23,6 +25,7 @@ namespace Oculus.Interaction
         // Start is called before the first frame update
         void Awake()
         {
+            _source = GetComponent<AudioSource>();
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
 
             Hands[0] = GameObject.Find("LeftHandAnchor");
@@ -33,6 +36,7 @@ namespace Oculus.Interaction
             GameObject obj1 = GameObject.Find("HandRayInteractorR");
             _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
 
+            flag = false;
             EnemyRig = this.GetComponent<Rigidbody>();
         }
 
@@ -73,6 +77,12 @@ namespace Oculus.Interaction
 
                     //EnemyRig.useGravity = false;
 
+                    if (!flag)
+                    {
+                        _source.PlayOneShot(HikiyoseSE);
+                        flag = true;
+                    }
+
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
                 }
@@ -82,6 +92,12 @@ namespace Oculus.Interaction
                     //GameObject RHand = GameObject.Find("RightHandAnchor");
                     // transform.position = Vector3.MoveTowards(transform.position, RHand.transform.position,
                     //speed * Time.deltaTime);
+
+                    if (!flag)
+                    {
+                        _source.PlayOneShot(HikiyoseSE);
+                        flag = true;
+                    }
 
                     EnemyRig.useGravity = false;
 

@@ -8,8 +8,10 @@ public class EnemyApproachSC : MonoBehaviour
     [SerializeField] private Image WarningPanel;
     public float interval = 0.1f;
     public float AP_EnemySpeed = 0.8f;
+    [SerializeField] private AudioClip WarningSE;
 
     private Enemy_SC _enemy;
+    private AudioSource _audioSource;
     public static bool IsApproach = false;
     private Color _color;
     private bool IsBlinking = false;
@@ -18,6 +20,7 @@ public class EnemyApproachSC : MonoBehaviour
     private int enemynum = 0;
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         WarningPanel.enabled = false;
         defaultColl = Physics.OverlapSphere(this.gameObject.transform.localScale, 6);
         for (int count = 0; count < defaultColl.Length; count++)
@@ -48,7 +51,7 @@ public class EnemyApproachSC : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-
+            _audioSource.PlayOneShot(WarningSE);
             StartCoroutine("Blink");
         }
     }

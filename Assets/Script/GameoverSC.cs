@@ -14,11 +14,14 @@ public class GameoverSC : MonoBehaviour
     }
     [SerializeField] private TextMeshProUGUI GameOverText;
     [SerializeField] public textColor _color;
+    [SerializeField] private AudioClip GameOverSE;
 
     private float _alpha = 0;
     private bool IsGameOver = false;
+    private AudioSource _audioSource;
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         GameOverText.gameObject.SetActive(false);
     }
 
@@ -27,6 +30,7 @@ public class GameoverSC : MonoBehaviour
     {
         if (IsGameOver)
         {
+            _audioSource.PlayOneShot(GameOverSE);
             _alpha+=1f * Time.unscaledDeltaTime;
             GameOverText.color = new Color(_color._R, _color._G, _color._B, _alpha);
         }

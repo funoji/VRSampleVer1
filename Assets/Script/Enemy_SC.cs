@@ -11,11 +11,14 @@ public class Enemy_SC : MonoBehaviour
     public static int ScoreCount = 0;
 
     private GameObject PlayerPos;
+    [HideInInspector]
     public bool ClearFlag = false;
-
+    [SerializeField] AudioClip BreakSE;
+    private AudioSource _source;
 
     void Start()
     {
+        _source = GetComponent<AudioSource>();
         PlayerPos = GameObject.Find("GameOverArea");
     }
 
@@ -37,10 +40,9 @@ public class Enemy_SC : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            Destroy(this.gameObject);
-            Debug.Log("Score="+ScoreCount);
-            Debug.Log("EnemyCount=" + SpawnEnemy.Enemy_Count);
+            _source.PlayOneShot(BreakSE);
             ScoreCount++;
+            Destroy(this.gameObject);
         }
     }
 }
