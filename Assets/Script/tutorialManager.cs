@@ -20,7 +20,6 @@ public class tutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(State.ReadBulletCnt);
         if (!BulletBox)
         {
             pinchText.enabled = false;

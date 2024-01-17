@@ -24,37 +24,22 @@ namespace Oculus.Interaction
         public static bool IsFillList = false;
         void Start()
         {
-            // �V�[�����̑S�Ă̓G���擾���ă��X�g�ɒǉ�
-            GameObject[] allEnemy = FindObjectsOfType<GameObject>();
-            foreach (GameObject obj in allEnemy)
-            {
-                if (obj.CompareTag(enemyTag))
-                {
-                    objectsToWatch.Add(obj);
-                }
-            }
-        
+            //GameObject[] allEnemy = FindObjectsOfType<GameObject>();
+            //foreach (GameObject obj in allEnemy)
+            //{
+            //    if (obj.CompareTag(enemyTag))
+            //    {
+            //        objectsToWatch.Add(obj);
+            //    }
+            //}
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
-            
         }
 
         void Update()
         {
-            //if (SpawnEnemy.IsSpawn)
+            //for (int i = objectsToWatch.Count - 1; i >= 0; i--)
             //{
-            //    GameObject[] allEnemy = FindObjectsOfType<GameObject>();
-            //    foreach (GameObject obj in allEnemy)
-            //    {
-            //        if (obj.CompareTag(enemyTag))
-            //        {
-            //            objectsToWatch.Add(obj);
-            //        }
-            //    }
-            //    IsFillList = true;
-            //}
-            for (int i = objectsToWatch.Count - 1; i >= 0; i--)
-            {
-                if (objectsToWatch[i] == null)
+                //if (objectsToWatch[i] == null)
                 {
                     if (!_rayInteractor[0].ModeLR)
                     {
@@ -69,9 +54,9 @@ namespace Oculus.Interaction
                         BulletCountR++;
                     }
 
-                    objectsToWatch.RemoveAt(i);
+                    //aobjectsToWatch.RemoveAt(i);
                 }
-            }
+            //}
 
             if(BulletCountL == BulletMaxCount)
             {
@@ -96,6 +81,13 @@ namespace Oculus.Interaction
         public int GetBulletCountR()
         {
             return BulletCountR;
+        }
+        public void AddbulletBox(GameObject a)
+        {
+            if (a.CompareTag(enemyTag))
+            {
+                objectsToWatch.Add(a);
+            }
         }
     }
 }
