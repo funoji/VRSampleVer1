@@ -1,6 +1,7 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class matoScript : MonoBehaviour
@@ -74,4 +75,6 @@ public class matoScript : MonoBehaviour
         // ˆÚ“®
         transform.Translate(direction * speed * (isMovingForward ? 1 : -1) * Time.deltaTime);
     }
+
+
 }

@@ -2,6 +2,7 @@ using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class tutorialManager : MonoBehaviour
@@ -10,11 +11,16 @@ public class tutorialManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI pinchText;
     [SerializeField] GameObject ShootText;
     [SerializeField] GameObject BulletBox;
+    [SerializeField] GameObject mato;
+    [SerializeField] GameObject endthis;
     bool pinched = false;
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if(collision.gameObject.CompareTag("Bullet"))
+        {
+            SceneManager.LoadScene("sizukistagedesign");
+        }
     }
 
     // Update is called once per frame
@@ -24,6 +30,12 @@ public class tutorialManager : MonoBehaviour
         {
             pinchText.enabled = false;
             ShootText.SetActive(true);
+        }
+        if(!mato)
+        {
+            ShootText.SetActive(false);
+            endthis.SetActive(true);
+            gameObject.GetComponent<BoxCollider>().enabled = true;
         }
     }
 }
