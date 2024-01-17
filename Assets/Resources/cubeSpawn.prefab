@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204029ac13b611d459e8879fa694fdfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPool: {fileID: 0}
+  objectPool: {fileID: -4717346082960560383}
 --- !u!114 &-4717346082960560383
 MonoBehaviour:
   m_ObjectHideFlags: 0

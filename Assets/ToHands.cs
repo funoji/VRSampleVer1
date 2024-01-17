@@ -10,6 +10,7 @@ namespace Oculus.Interaction
         private bool invaded;//�t�B�[���h�ɓ�������
 /*        [SerializeField]*/public GameObject[] Hands;
         [SerializeField] float speed = 3.0f;
+        [SerializeField] bool isNotPool = false;
         ObjectPool objectPool;
         ActiveStateSelector activeSelectorR;
         ActiveStateSelector activeSelectorL;
@@ -113,20 +114,27 @@ namespace Oculus.Interaction
             {
                 if (other.gameObject.CompareTag("LHand"))
                 {
-                    gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
-                    gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
                     activeSelectorL.ReloadBullet();
                     invaded = false;
                     _rayInteractor[0].ModeLR = false;
+                    if (!isNotPool)
+                    {
+                        gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
+                        gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
+                    }else GameObject.Destroy(gameObject);
                 }
 
                 if (other.gameObject.CompareTag("RHand"))
                 {
-                    gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
-                    gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
                     activeSelectorR.ReloadBullet();
                     invaded = false;
                     _rayInteractor[1].ModeLR = true;
+                    if (!isNotPool)
+                    {
+                        gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
+                        gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
+                    }
+                    else GameObject.Destroy(gameObject);
                 }
             }
         }

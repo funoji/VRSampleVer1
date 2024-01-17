@@ -238,6 +238,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 1
+  isNotPool: 0
   _rayInteractor:
   - {fileID: 4367030869439476208, guid: ad840c3180d317a4cbfb9c6109d7687b, type: 3}
   - {fileID: 1706288401299399421, guid: b9197f973f3bbbe43afb067c3aeb09c5, type: 3}
