@@ -68,7 +68,6 @@ namespace Oculus.Interaction
                 _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
                 SpawnEnemy.IsSpawn = false;
                 BulletManager.IsFillList = false;
-                Debug.Log("������");
             }
             if (invaded)
             {
@@ -121,7 +120,8 @@ namespace Oculus.Interaction
                     {
                         gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
                         gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
-                    }else GameObject.Destroy(gameObject);
+                    }
+                    else GameObject.Destroy(gameObject);
                 }
 
                 if (other.gameObject.CompareTag("RHand"))
