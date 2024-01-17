@@ -13,6 +13,8 @@ public class tutorialManager : MonoBehaviour
     [SerializeField] GameObject BulletBox;
     [SerializeField] GameObject mato;
     [SerializeField] GameObject endthis;
+    [SerializeField] GameObject spwanbox;
+    [SerializeField] GameObject spwanbox2;
     bool pinched = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -30,6 +32,9 @@ public class tutorialManager : MonoBehaviour
         {
             pinchText.enabled = false;
             ShootText.SetActive(true);
+            spwanbox.SetActive(true);
+            spwanbox2.SetActive(true);
+
         }
         if(!mato)
         {

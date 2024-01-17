@@ -21,6 +21,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Oculus.Interaction;
 
 namespace Oculus.Interaction
 {
@@ -34,7 +35,7 @@ namespace Oculus.Interaction
         [SerializeField, Interface(typeof(IActiveState))]
         private UnityEngine.Object _activeState;
         protected IActiveState ActiveState { get; private set; }
-
+        
         private bool _selecting = false;
 
         public event Action WhenSelected = delegate { };
@@ -82,6 +83,10 @@ namespace Oculus.Interaction
                 //if (gameObject.activeSelf) gameObject.SetActive(false);
                 if (!SuikomiObj.activeSelf) SuikomiObj.SetActive(true);
             }
+        }
+        public int getbullet()
+        {
+            return Bulletcount;
         }
 
         public voidÅ@ReloadBullet()
