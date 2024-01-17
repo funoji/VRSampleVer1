@@ -7,6 +7,10 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] int poolSize = 5;
     [SerializeField] GameObject spawn;
 
+    [SerializeField] float SpawnScaledX = 1.0f;
+    [SerializeField] float SpawnScaledY = 1.0f;
+    [SerializeField] float SpawnScaledZ = 1.0f;
+
     private void Start()
     {
         InitializeObjectPool();
@@ -34,7 +38,7 @@ public class ObjectPool : MonoBehaviour
         Debug.Log("Repooled");
         obj.transform.position = spawn.transform.position;
         obj.transform.rotation = spawn.transform.rotation;
-        obj.transform.localScale = Vector3.one * 0.2f;
+        obj.transform.localScale = new Vector3(SpawnScaledX, SpawnScaledY, SpawnScaledZ);
         obj.GetComponent<Rigidbody>().useGravity = true;
         obj.SetActive(false);
     }

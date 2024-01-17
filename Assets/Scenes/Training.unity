@@ -930,6 +930,9 @@ MonoBehaviour:
   prefabToPool: {fileID: 2821684926848175511, guid: 179ba40eac93f8f469414feb835d811f, type: 3}
   poolSize: 5
   spawn: {fileID: 704561231}
+  SpawnScaledX: 0.2
+  SpawnScaledY: 0.2
+  SpawnScaledZ: 0.2
 --- !u!114 &704561235
 MonoBehaviour:
   m_ObjectHideFlags: 0
