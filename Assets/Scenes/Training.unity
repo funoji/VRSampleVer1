@@ -482,6 +482,10 @@ PrefabInstance:
       value: pose
       objectReference: {fileID: 0}
     - target: {fileID: 163315005876398752, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4789411718709268363, guid: 7e98a809ca711154fb320e4ca0d26d2f, type: 3}
+    - target: {fileID: 163315005876398752, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: shotpoint
       value: 
       objectReference: {fileID: 717182596}
@@ -513,6 +517,10 @@ PrefabInstance:
       propertyPath: _hand
       value: 
       objectReference: {fileID: 717182590}
+    - target: {fileID: 163315006101348054, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4789411718709268363, guid: 7e98a809ca711154fb320e4ca0d26d2f, type: 3}
     - target: {fileID: 163315006101348054, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: shotpoint
       value: 
@@ -3078,6 +3086,10 @@ PrefabInstance:
       value: LeftUI
       objectReference: {fileID: 0}
     - target: {fileID: 2135049661260840541, guid: c533a97be1f01ed479e7f3d14315e71c, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5926232372705847562, guid: d04dde3ac2d47054fb9c48323a490f20, type: 3}
+    - target: {fileID: 2135049661260840541, guid: c533a97be1f01ed479e7f3d14315e71c, type: 3}
       propertyPath: activeStateSelector
       value: 
       objectReference: {fileID: 1538791984}
@@ -3094,6 +3106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8346065747374876214, guid: 31d0da81b1c7f9847a5a59984729a70c, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5926232372705847562, guid: d04dde3ac2d47054fb9c48323a490f20, type: 3}
     - target: {fileID: 8346065747374876214, guid: 31d0da81b1c7f9847a5a59984729a70c, type: 3}
       propertyPath: activeStateSelector
       value: 
