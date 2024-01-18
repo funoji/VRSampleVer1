@@ -31,6 +31,11 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Start()
     {
+        Enemy_Count = 50;
+        Count = 0;
+        IsSpawn = false;
+        ClearFlag = false;
+
         _text.gameObject.SetActive(false);
     }
 

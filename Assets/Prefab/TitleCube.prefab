@@ -479,6 +479,7 @@ MonoBehaviour:
   _rayInteractor:
   - {fileID: 0}
   - {fileID: 0}
+  SuikomiSE: {fileID: 0}
 --- !u!1 &3445491668828166919
 GameObject:
   m_ObjectHideFlags: 0
