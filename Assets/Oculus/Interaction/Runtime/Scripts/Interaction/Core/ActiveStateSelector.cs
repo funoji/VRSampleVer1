@@ -65,7 +65,7 @@ namespace Oculus.Interaction
                 if (_selecting && Bulletcount > 0)
                 {
                     Debug.Log("Phase2");
-                    GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);        
+                    GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.Euler(shotpoint.transform.eulerAngles));
                     NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
                     Bulletcount--;
                     WhenSelected();
