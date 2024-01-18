@@ -12,10 +12,6 @@ namespace Oculus.Interaction
         [SerializeField] float speed = 3.0f;
         [SerializeField] private AudioClip HikiyoseSE;
         private AudioSource _source;
-        [SerializeField] bool isNotPool = false;
-        ObjectPool objectPool;
-        ActiveStateSelector activeSelectorR;
-        ActiveStateSelector activeSelectorL;
 
         private float scaleedSize;
         private float beforeSize;
@@ -39,9 +35,6 @@ namespace Oculus.Interaction
             Hands[1] = GameObject.Find("RightHandAnchor");
             GameObject obj1 = GameObject.Find("HandRayInteractorR");
             _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
-            objectPool = GameObject.Find("cubeSpawn").GetComponent<ObjectPool>();
-            activeSelectorR = GameObject.Find("HandGunR").GetComponent<ActiveStateSelector>();
-            activeSelectorL = GameObject.Find("HandGunL").GetComponent<ActiveStateSelector>();
 
             flag = false;
             EnemyRig = this.GetComponent<Rigidbody>();
@@ -72,6 +65,7 @@ namespace Oculus.Interaction
                 _rayInteractor[1] = obj1.GetComponent<RayInteractor>();
                 SpawnEnemy.IsSpawn = false;
                 BulletManager.IsFillList = false;
+                Debug.Log("������");
             }
             if (invaded)
             {
@@ -129,28 +123,15 @@ namespace Oculus.Interaction
             {
                 if (other.gameObject.CompareTag("LHand"))
                 {
-                    activeSelectorL.ReloadBullet();
-                    invaded = false;
+                    Destroy(gameObject);
                     _rayInteractor[0].ModeLR = false;
-                    if (!isNotPool)
-                    {
-                        gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
-                        gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
-                    }
-                    else GameObject.Destroy(gameObject);
                 }
 
                 if (other.gameObject.CompareTag("RHand"))
                 {
-                    activeSelectorR.ReloadBullet();
-                    invaded = false;
+                    Destroy(gameObject);
+                        Debug.Log(gameObject);
                     _rayInteractor[1].ModeLR = true;
-                    if (!isNotPool)
-                    {
-                        gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
-                        gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
-                    }
-                    else GameObject.Destroy(gameObject);
                 }
             }
         }

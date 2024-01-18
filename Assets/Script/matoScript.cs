@@ -1,16 +1,14 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class matoScript : MonoBehaviour
 {
+
     public float speed = 5.0f;
     public float changeDirectionInterval = 2.0f;
     public float reverseDirectionInterval = 1.0f;
-    public bool random = false;
-    public Vector3 Vec;
 
     private Vector3 targetDirection;
     private float timer;
@@ -24,10 +22,11 @@ public class matoScript : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
         SetRandomDirection();
-        InvokeRepeating("ReverseDirection", reverseDirectionInterval, reverseDirectionInterval);
+        //InvokeRepeating("ReverseDirection", reverseDirectionInterval, reverseDirectionInterval);
     }
 
     private void Update()
@@ -38,16 +37,12 @@ public class matoScript : MonoBehaviour
         // 一定の時間が経過したら新しい方向に切り替え
         if (timer >= changeDirectionInterval)
         {
-            if(random)
-            {
-                SetRandomDirection();
-            }
-            SetDirection(Vec);
+            ReverseDirection();
             timer = 0;
         }
 
         // 移動
-        MoveInDirection(targetDirection);
+        transform.Translate(targetDirection * speed * (isMovingForward ? 1 : -1) * Time.deltaTime);
     }
 
     private void SetRandomDirection()
@@ -62,19 +57,4 @@ public class matoScript : MonoBehaviour
         // 進行方向を反転
         isMovingForward = !isMovingForward;
     }
-
-    // 新しいメソッド: 外部から移動方向を指定できる
-    public void SetDirection(Vector3 direction)
-    {
-        targetDirection = direction.normalized;
-        targetDirection.y = 0;
-    }
-
-    private void MoveInDirection(Vector3 direction)
-    {
-        // 移動
-        transform.Translate(direction * speed * (isMovingForward ? 1 : -1) * Time.deltaTime);
-    }
-
-
 }
