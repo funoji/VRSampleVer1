@@ -16,8 +16,12 @@ public class EnemyApproachSC : MonoBehaviour
     private Collider[] defaultColl;
     private int defaultNum = 0;
     private int enemynum = 0;
+
+    [SerializeField] private AudioClip WarningSE;
+    private AudioSource _source;
     void Start()
     {
+        _source=GetComponent<AudioSource>();
         WarningPanel.enabled = false;
         defaultColl = Physics.OverlapSphere(this.gameObject.transform.localScale, 6);
         for (int count = 0; count < defaultColl.Length; count++)
@@ -48,7 +52,7 @@ public class EnemyApproachSC : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-
+            _source.PlayOneShot(WarningSE);
             StartCoroutine("Blink");
         }
     }
