@@ -45,8 +45,11 @@ namespace Oculus.Interaction
 
         [SerializeField] GameObject SuikomiObj;
 
+        [SerializeField] private AudioClip ShotSE;
+        private AudioSource _source;
         protected virtual void Awake()
         {
+            _source = GetComponent<AudioSource>();
             ActiveState = _activeState as IActiveState;
         }
 
@@ -67,6 +70,7 @@ namespace Oculus.Interaction
                     Debug.Log("Phase2");
                     GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.Euler(shotpoint.transform.eulerAngles));
                     NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
+                    _source.PlayOneShot(ShotSE);
                     Bulletcount--;
                     WhenSelected();
                 }

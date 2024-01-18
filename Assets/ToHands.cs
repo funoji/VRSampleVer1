@@ -24,9 +24,13 @@ namespace Oculus.Interaction
         
         GameObject[] obj_tes;
         private bool flag = false;
+
+        [SerializeField] private AudioClip SuikomiSE;
+        private AudioSource _source;
         // Start is called before the first frame update
         void Awake()
         {
+            _source = GetComponent<AudioSource>();
             this.AssertField(_rayInteractor, nameof(_rayInteractor));
 
             Hands[0] = GameObject.Find("LeftHandAnchor");
@@ -73,24 +77,27 @@ namespace Oculus.Interaction
             {
                 if (_rayInteractor[0].ModeLR)
                 {
-                    //GameObject LHand = GameObject.Find("LeftHandAnchor");
-                    // transform.position = Vector3.MoveTowards(transform.position, LHand.transform.position,
-                    //speed * Time.deltaTime);
-
-                    //EnemyRig.useGravity = false;
+                    EnemyRig.useGravity = false;
 
                     transform.position = Vector3.MoveTowards(transform.position, Hands[0].transform.position,
                    speed * Time.deltaTime);
+
+                    if (flag == false)
+                    {
+                        _source.PlayOneShot(SuikomiSE);
+                        flag = true;
+                    }
                 }
 
                 if(!_rayInteractor[1].ModeLR)
                 {
-                    //GameObject RHand = GameObject.Find("RightHandAnchor");
-                    // transform.position = Vector3.MoveTowards(transform.position, RHand.transform.position,
-                    //speed * Time.deltaTime);
-
                     EnemyRig.useGravity = false;
 
+                    if (flag == false)
+                    {
+                        _source.PlayOneShot(SuikomiSE);
+                        flag = true;
+                    }
 
                     transform.position = Vector3.MoveTowards(transform.position, Hands[1].transform.position,
                    speed * Time.deltaTime);
@@ -120,8 +127,14 @@ namespace Oculus.Interaction
                     {
                         gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
                         gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
+                        flag = false;
                     }
-                    else GameObject.Destroy(gameObject);
+                    else
+                    {
+                        GameObject.Destroy(gameObject);
+                        flag = false;
+                    }
+
                 }
 
                 if (other.gameObject.CompareTag("RHand"))
@@ -133,8 +146,13 @@ namespace Oculus.Interaction
                     {
                         gameObject.GetComponentInParent<ObjectPool>().RepoolObject(gameObject);
                         gameObject.GetComponentInParent<ObjectPool>().GetPooledObject();
+                        flag = false;
                     }
-                    else GameObject.Destroy(gameObject);
+                    else
+                    {
+                        GameObject.Destroy(gameObject);
+                        flag=false;
+                    } 
                 }
             }
         }

@@ -17,8 +17,12 @@ public class GameoverSC : MonoBehaviour
 
     private float _alpha = 0;
     private bool IsGameOver = false;
+
+    [SerializeField] private AudioClip GameoverSE;
+    private AudioSource _source;
     void Start()
     {
+        _source = GetComponent<AudioSource>();
         GameOverText.gameObject.SetActive(false);
     }
 
@@ -36,6 +40,7 @@ public class GameoverSC : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            _source.PlayOneShot(GameoverSE);
             IsGameOver = true;
             GameOverText.gameObject.SetActive(true);
             Time.timeScale = 0f;
