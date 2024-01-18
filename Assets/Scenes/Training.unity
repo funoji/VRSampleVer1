@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 163315005876398752, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 2552213763688337702, guid: 3de51ff7a94b5bf4eaea95cd0a70839c, type: 3}
+      objectReference: {fileID: 4789411718709268363, guid: 7e98a809ca711154fb320e4ca0d26d2f, type: 3}
     - target: {fileID: 163315005876398752, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: shotpoint
       value: 
@@ -526,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 163315006101348054, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: shotpoint
       value: 
-      objectReference: {fileID: 717182597}
+      objectReference: {fileID: 4789411718709268363, guid: 7e98a809ca711154fb320e4ca0d26d2f, type: 3}
     - target: {fileID: 163315006101348054, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: SuikomiObj
       value: 
@@ -1299,11 +1299,6 @@ MonoBehaviour:
 --- !u!1 &717182596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6914856991567491320, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
-  m_PrefabInstance: {fileID: 717182587}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &717182597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6914856992513644472, guid: 1f291d3d71ba2464082c163f62f26ddd, type: 3}
   m_PrefabInstance: {fileID: 717182587}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &792570160

@@ -20,7 +20,7 @@ namespace Oculus.Interaction
             {
                 bulletForUi[i] = Instantiate(bulletPrefab, point[i].position, Quaternion.identity);
                 bulletForUi[i].transform.parent = transform;
-                bulletForUi[i].transform.localScale = Vector3.one * 0.1f;
+                bulletForUi[i].transform.localScale = Vector3.one * 0.5f;
                 bulletForUi[i].SetActive(false);
             }
         }
