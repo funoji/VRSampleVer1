@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 163315005876398752, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 4789411718709268363, guid: 7e98a809ca711154fb320e4ca0d26d2f, type: 3}
+      objectReference: {fileID: 2552213763688337702, guid: 3de51ff7a94b5bf4eaea95cd0a70839c, type: 3}
     - target: {fileID: 163315005876398752, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: shotpoint
       value: 
@@ -522,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 163315006101348054, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 4789411718709268363, guid: 7e98a809ca711154fb320e4ca0d26d2f, type: 3}
+      objectReference: {fileID: 2552213763688337702, guid: 3de51ff7a94b5bf4eaea95cd0a70839c, type: 3}
     - target: {fileID: 163315006101348054, guid: 4580c9219844c0a43b4c254c09be74ac, type: 3}
       propertyPath: shotpoint
       value: 
@@ -2350,6 +2350,7 @@ MonoBehaviour:
   _rayInteractor:
   - {fileID: 717182592}
   - {fileID: 717182589}
+  SuikomiSE: {fileID: 0}
 --- !u!54 &1132871976
 Rigidbody:
   m_ObjectHideFlags: 0
