@@ -4207,15 +4207,15 @@ PrefabInstance:
       objectReference: {fileID: 1878333566}
     - target: {fileID: 64165847579652302, guid: 9194a6219e6a4e940b6c0b5ad8261083, type: 3}
       propertyPath: SpawnScaledX
-      value: 0.7537063
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 64165847579652302, guid: 9194a6219e6a4e940b6c0b5ad8261083, type: 3}
       propertyPath: SpawnScaledY
-      value: 0.7537063
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 64165847579652302, guid: 9194a6219e6a4e940b6c0b5ad8261083, type: 3}
       propertyPath: SpawnScaledZ
-      value: 0.7537063
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 64165847579652302, guid: 9194a6219e6a4e940b6c0b5ad8261083, type: 3}
       propertyPath: prefabToPool
