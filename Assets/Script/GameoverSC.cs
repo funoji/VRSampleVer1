@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class GameoverSC : MonoBehaviour
 {
     [System.Serializable]
@@ -31,8 +31,12 @@ public class GameoverSC : MonoBehaviour
     {
         if (IsGameOver)
         {
-            _alpha+=1f * Time.unscaledDeltaTime;
+            _alpha+=0.6f * Time.unscaledDeltaTime;
             GameOverText.color = new Color(_color._R, _color._G, _color._B, _alpha);
+        }
+        if (_alpha > 1)
+        {
+            StartCoroutine("RetryIngame");
         }
     }
 
@@ -45,5 +49,13 @@ public class GameoverSC : MonoBehaviour
             GameOverText.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
+    }
+
+
+    private IEnumerator RetryIngame()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
