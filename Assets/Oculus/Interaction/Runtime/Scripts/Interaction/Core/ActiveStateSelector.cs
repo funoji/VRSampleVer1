@@ -21,6 +21,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Oculus.Interaction;
 
 namespace Oculus.Interaction
 {
@@ -34,20 +35,13 @@ namespace Oculus.Interaction
         [SerializeField, Interface(typeof(IActiveState))]
         private UnityEngine.Object _activeState;
         protected IActiveState ActiveState { get; private set; }
-
+        
         private bool _selecting = false;
 
         public event Action WhenSelected = delegate { };
         public event Action WhenUnselected = delegate { };
 
-        int ShootCnt = 0;
-        public int ReadBulletCnt
-        {
-            get { return ShootCnt; }
-            set { ShootCnt = value; }
-        }
-
-        int MaxShootCnt = 3;
+        int Bulletcount = 0;
 
         [SerializeField] GameObject SuikomiObj;
 
@@ -65,17 +59,15 @@ namespace Oculus.Interaction
         {
             Debug.Log("Phase1");
             if (_selecting != ActiveState.Active)
-            {
-                Debug.Log("Phase1");
+            {           
                 _selecting = ActiveState.Active;
 
-
-                if (_selecting && ShootCnt < MaxShootCnt)
+                if (_selecting && Bulletcount > 0)
                 {
                     Debug.Log("Phase2");
                     GameObject NewObj = Instantiate(bullet, shotpoint.GetComponent<Transform>().position, Quaternion.identity);        
-                    ShootCnt++;
                     NewObj.GetComponent<Rigidbody>().velocity = shotpoint.transform.forward * bulletSpeed;
+                    Bulletcount--;
                     WhenSelected();
                 }
                 else
@@ -85,13 +77,21 @@ namespace Oculus.Interaction
                 }
             }
 
-            if(ShootCnt == MaxShootCnt)
+            if(Bulletcount == 0)
             {
                 Debug.Log("Phase4");
-                if (gameObject.activeSelf) gameObject.SetActive(false);
+                //if (gameObject.activeSelf) gameObject.SetActive(false);
                 if (!SuikomiObj.activeSelf) SuikomiObj.SetActive(true);
-                ShootCnt = 0;
             }
+        }
+        public int getbullet()
+        {
+            return Bulletcount;
+        }
+
+        public voidÅ@ReloadBullet()
+        {
+            Bulletcount = 3;
         }
 
         #region Inject
