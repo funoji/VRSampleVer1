@@ -15,6 +15,7 @@ public class tutorialManager : MonoBehaviour
     [SerializeField] GameObject endthis;
     [SerializeField] GameObject spwanbox;
     [SerializeField] GameObject spwanbox2;
+    [SerializeField] GameObject[] matos;
     bool pinched = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -23,6 +24,16 @@ public class tutorialManager : MonoBehaviour
         {
             SceneManager.LoadScene("sizukistagedesign");
         }
+    }
+
+    private void Start()
+    {
+        for(int i = 0; i < matos.Length; i++)
+        {
+            matos[i].SetActive(false);
+        }
+        spwanbox.SetActive(false);
+        spwanbox2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,6 +52,10 @@ public class tutorialManager : MonoBehaviour
             ShootText.SetActive(false);
             endthis.SetActive(true);
             gameObject.GetComponent<BoxCollider>().enabled = true;
+            for (int i = 0; i < matos.Length; i++)
+            {
+                matos[i].SetActive(true);
+            }
         }
     }
 }
