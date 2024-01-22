@@ -56,6 +56,9 @@ public class GameoverSC : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(5f);
         Time.timeScale = 1f;
+        Enemy_SC.ScoreCount = 0;
+        SpawnEnemy.Enemy_Count = 50;
+        SpawnEnemy.Count = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
